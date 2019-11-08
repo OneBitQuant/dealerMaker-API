@@ -1,1 +1,1 @@
-# dealerMaker-API
+# Trading Small, Trading Smart
