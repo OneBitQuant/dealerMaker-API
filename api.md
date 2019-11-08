@@ -9,7 +9,7 @@
     - client_name: str, given client name
 - private endpoint
     /orders, /position, /price, /deal requires authentication. Please refer to the below example.
-
+[https://github.com/onebit-quant/dealerMaker-API/blob/master/signature_example.py]
 
 ## Endpoints
 ### /indicativePrice
