@@ -1,5 +1,5 @@
 
-##Description：
+## Description：
 - parameters format：
     - symbol：str, base_quote.  ps: btc_usdt
     - amount: float
@@ -11,8 +11,8 @@
     /orders, /position, /price, /deal requires authentication. Please refer to the below example.
 
 
-##Endpoints
-###/indicativePrice
+## Endpoints
+### /indicativePrice
 
 get the reference price for a given symbol with given vol, which will expire in 10 seconds
 
@@ -36,7 +36,7 @@ get the reference price for a given symbol with given vol, which will expire in 
 ```
 
 
-###/symbols
+### /symbols
 
 get support trading symbols
 
@@ -58,7 +58,7 @@ get support trading symbols
     }
 ```
 
-###/orders
+### /orders
 
 obtain a list of filled orders during a certain period in order to facilitate the settlement of transactions within this time period
 
@@ -77,7 +77,7 @@ obtain a list of filled orders during a certain period in order to facilitate th
         - dealt_time
 
 
-###/orderInfo
+### /orderInfo
 
 get information of given filled order
 
@@ -94,7 +94,7 @@ get information of given filled order
         - price, transaction price
         - dealt_time
 
-###/position
+### /position
 
 get current total position
 
@@ -113,7 +113,7 @@ get current total position
 ```
 
 
-###/price
+### /price
 
 get trading price endpoint
 
@@ -148,7 +148,7 @@ NOTE: To sell btc with equivalent value of 100 usdt, the order symbol should be 
 ```
 
 
-###/deal
+### /deal
 
 confirm the given order
 
