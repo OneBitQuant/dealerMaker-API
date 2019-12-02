@@ -12,9 +12,33 @@
 [auth example(in Python)](https://github.com/onebit-quant/dealerMaker-API/blob/master/signature_example.py)
 
 ## Endpoints
+
+### /symbols
+
+get support trading symbols
+
+- request_params: None
+- response:
+    - result : 1（return success), 0（return failure)
+    - symbols : dict
+            key： symbol name
+            value: list, [quote precision，base precision，min order vol，min order amount]
+```
+    {
+            "result": 1,
+            "symbols": {
+                "btc_usdt": [0.01, 0.0001, 0.0001, 1],
+                "eth_usdt": [0.01, 0.0001, 0.0001, 1],
+                "usdt_btc": [1e-08, 0.01, 1, 0.0001],
+                "usdt_eth": [1e-08, 0.01, 1, 0.0001]
+            }
+    }
+```
+
+
 ### /indicativePrice
 
-get the reference price for a given symbol with given vol, which will expire in 10 seconds
+get the reference price for a given symbol with given vol
 
 - request_params :
     - symbol
@@ -36,25 +60,24 @@ get the reference price for a given symbol with given vol, which will expire in 
 ```
 
 
-### /symbols
+### /indicativePriceBatch
 
-get support trading symbols
-
+get the reference price for all symbols with default vol.
 - request_params: None
-- response:
+- response :
     - result : 1（return success), 0（return failure)
-    - symbols : dict
-            key： symbol name
-            value: list, [quote precision，base precision，min order vol，min order amount]
+    - data: list of dict
+    - time
 ```
     {
-            "result": 1,
-            "symbols": {
-                "btc_usdt": [0.01, 0.0001, 0.0001, 1],
-                "eth_usdt": [0.01, 0.0001, 0.0001, 1],
-                "usdt_btc": [1e-08, 0.01, 1, 0.0001],
-                "usdt_eth": [1e-08, 0.01, 1, 0.0001]
-            }
+        'result': 1,
+        'data': [
+            {'buy_price': 7331.99, 'sell_price': 7348.8, 'symbol': 'btc_usdt'},
+            {'buy_price': 149.84, 'sell_price': 150.13, 'symbol': 'eth_usdt'},
+            {'buy_price': 0.00013607, 'sell_price': 0.00013639, 'symbol': 'usdt_btc'},
+            {'buy_price': 0.00666116, 'sell_price': 0.00667361, 'symbol': 'usdt_eth'}
+        ],
+        'time': 1575282550.8962257
     }
 ```
 
